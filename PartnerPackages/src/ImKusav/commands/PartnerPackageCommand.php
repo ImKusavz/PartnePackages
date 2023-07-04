@@ -17,7 +17,8 @@ class PartnerPackageCommand extends Command
 
     public function __construct()
     {
-        parent::__construct('partnerpackage', '§bGive PartnerPackage', 'pp');
+        parent::__construct('partnerpackage', '§dGive PartnerPackage', 'pp');
+        $this->setAliases(["pp"]);
         $this->setPermission('partner.command');
     }
 
