@@ -3,7 +3,7 @@
 namespace ImKusav;
 
 use ImKusav\EventListener;
-use ImKusav\commands\PPCommand;
+use ImKusav\commands\PartnerPackageCommand;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\SingletonTrait;
@@ -24,7 +24,7 @@ final class Loader extends PluginBase {
     $this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
     
     # commands
-    $this->getServer()->getCommandMap()->register('/partnerpackages', new PartnerPackageCommand());
+    $this->getServer()->getCommandMap()->register('/pp', new PartnerPackageCommand());
   }
 }
 ?>

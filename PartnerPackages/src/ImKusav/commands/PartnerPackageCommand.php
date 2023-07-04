@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ImKusav\commands;
 
+use ImKusav\Loader;
 use ImKusav\utils\Utils;
 
 use pocketmine\player\Player;
@@ -32,6 +33,35 @@ class PartnerPackageCommand extends Command
         if (!$this->testPermission($sender))
             return;
             
-        Utils::addItem($sender);
+        if (count($args) === 0) {
+          $sender->sendMessage("§l§dPartnerPackages");
+          $sender->sendMessage("§cAuthor: ImKusavz");
+          $sender->sendMessage("§cUsa /partnerpackage give (all | player) (amount)");
+          
+          return;
+        }
+        
+        switch ($args[0]) {
+          case 'give':
+            if (empty($args[1])) {
+
+                    $sender->sendMessage(TE::RED . "Usage: /partnerpackage give (player|all) (amount)");
+
+                    return;
+                }
+                if (empty($args[2])) {
+                    $sender->sendMessage(TE::RED . "Usage: /partnerpackage give (player|all) (amount)");
+                    return;
+                }
+                $player = Loader::getInstance()->getServer()->getPlayerExact($args[1]);
+                if ($player !== null) {
+                    Utils::giveItem($player, $args[2]);
+                    return;
+                }
+                foreach (Loader::getInstance()->getServer()->getOnlinePlayers() as $player) {
+                  Utils::giveItem($player, $args[2]);
+                }
+            break;
+        }
     }
 }

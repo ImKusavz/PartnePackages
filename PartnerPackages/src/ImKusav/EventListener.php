@@ -7,7 +7,7 @@ use ImKusav\utils\Utils;
 
 use pocketmine\event\Event;
 use pocketmine\event\Listener;
-use pocketmine\event\player\PlayerItemUseEvent;
+use pocketmine\event\block\BlockPlaceEvent;
 
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
@@ -15,11 +15,11 @@ use pocketmine\player\Player;
 
 class EventListener implements Listener{
   
-  function itemUse(PlayerItemUseEvent $event) : void {
+  function itemUse(BlockPlaceEvent $event) : void {
     $player = $event->getPlayer();
-    $item = $event->getItem();
+    $block = $event->getBlockAgainst();
     if(!$player instanceof Player) return;
-    if($item->getTypeId() === 138){
+    if($block->getTypeId() === 130 && $block->getCustomName("&r&r&r&l&dPartnerPackage&r&r&r")){
       Utils::addItem($player);
     }
   }

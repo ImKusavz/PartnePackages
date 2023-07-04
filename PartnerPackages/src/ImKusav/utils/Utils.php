@@ -32,8 +32,7 @@ final class Utils {
   }
   
   static function addItem(Player $player) : void {
-    $c = new Config(Loader::getInstance()-
-    getDataFolder() . "items.yml", Config::YAML);
+    $c = new Config(Loader::getInstance()->getDataFolder()."items.yml", Config::YAML);
 		$items = $c->getAll()["Items"];
 		foreach ($items as $key => $value) {
 			$itemData = $value;
