@@ -1,0 +1,11 @@
+name: PartnerPackages
+api: 5.0.0
+author: ImKusavz
+version: 0.1
+main: ImKusav\Loader
+
+permissions:
+  partner.command:
+    default: op
+    description: root
+    

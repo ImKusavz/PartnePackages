@@ -1,0 +1,13 @@
+# add loot items in this way or this type
+# Items:
+#  - id: "34"
+#    name: "hola"
+#   count: "2"
+
+Items:
+ - id: 57
+   name: "hola"
+   count: 2
+ - id: 138
+   name: "holAaaa"
+   count: 6
